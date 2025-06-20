@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Projects from "@/components/Projects";
+// import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -9,7 +9,7 @@ import NewProjects from "@/components/NewProjects";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen max-w-full overflow-hidden bg-background">
       <Header />
       <main>
         <Hero />
