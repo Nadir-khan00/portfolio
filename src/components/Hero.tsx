@@ -19,6 +19,8 @@ const Hero = () => {
     }
   };
 
+  //  hello
+
   useEffect(() => {
     gsap.fromTo(
       ".Name",
