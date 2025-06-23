@@ -9,10 +9,7 @@ const About = () => {
   ];
 
   return (
-    <section
-      id="about"
-      className="py-20 bg-gradient-to-b from-gray-50 to-white"
-    >
+    <section id="about" className="py-20 bg-white dark:bg-transparent">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -46,10 +43,10 @@ const About = () => {
               {stats.map((stat, index) => (
                 <div
                   key={index}
-                  className="text-center p-4 bg-white rounded-lg shadow-md"
+                  className="text-center p-4 bg-white dark:bg-transparent dark:border rounded-lg shadow-md"
                 >
                   <stat.icon className="mx-auto text-blue-600 mb-2" size={32} />
-                  <div className="text-2xl font-bold text-gray-900">
+                  <div className="text-2xl font-bold text-gray-900 dark:text-gray-50 ">
                     {stat.value}
                   </div>
                   <div className="text-sm text-muted-foreground">
@@ -62,19 +59,16 @@ const About = () => {
 
           {/* Image */}
           <div className="relative">
-            <div className="relative z-10 bg-gradient-to-br from-blue-400 to-purple-600 rounded-2xl p-8 text-white">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
+            <div className="relative z-10 dark:bg-transparent bg-gradient-to-br from-blue-700 to-purple-300 rounded-2xl p-6 text-white">
+              <img
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80"
+                alt="Developer workspace"
                 className="w-full h-64 object-cover rounded-lg mb-6"
-              >
-                <source src="./portfolio-video.mp4" type="video/mp4" />
-                {/* Browser will show nothing if video fails to load (no fallback) */}
-              </video>
-              <h3 className="text-xl font-semibold mb-2">Always Learning</h3>
-              <p className="text-blue-100 italic">
+              />
+              <h3 className="text-xl font-semibold text-gray-100 mb-2">
+                Always Learning
+              </h3>
+              <p className="text-blue-100">
                 I'm constantly exploring new technologies and methodologies to
                 stay at the forefront of web development.
               </p>

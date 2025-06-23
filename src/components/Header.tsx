@@ -1,9 +1,35 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect, useLayoutEffect } from "react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Initialize dark mode from localStorage or system preference
+  useLayoutEffect(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    if (savedMode !== null) {
+      setDarkMode(savedMode === "true");
+    } else if (systemPrefersDark) {
+      setDarkMode(true);
+    }
+  }, []);
+
+  // Apply dark mode class to document
+  useLayoutEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("darkMode", "true");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("darkMode", "false");
+    }
+  }, [darkMode]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -11,6 +37,10 @@ const Header = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
     setIsMenuOpen(false);
+  };
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
   };
 
   return (
@@ -21,54 +51,69 @@ const Header = () => {
             Portfolio
           </h1>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection("home")}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
-               hover:text-blue-900 transition-colors"
-            >
-              Home
-            </button>
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
-               hover:text-blue-900 transition-colors"
-            >
-              Projects
-            </button>
-            <button
-              onClick={() => scrollToSection("skills")}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
-               hover:text-blue-900 transition-colors"
-            >
-              Skills
-            </button>
-            <button
-              onClick={() => scrollToSection("about")}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
-               hover:text-blue-900 transition-colors"
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
-               hover:text-blue-900 transition-colors"
-            >
-              Contact
-            </button>
-          </div>
+          <div className="flex items-center gap-4">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              <button
+                onClick={() => scrollToSection("home")}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
+                 hover:text-blue-900 transition-colors"
+              >
+                Home
+              </button>
+              <button
+                onClick={() => scrollToSection("projects")}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
+                 hover:text-blue-900 transition-colors"
+              >
+                Projects
+              </button>
+              <button
+                onClick={() => scrollToSection("skills")}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
+                 hover:text-blue-900 transition-colors"
+              >
+                Skills
+              </button>
+              <button
+                onClick={() => scrollToSection("about")}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
+                 hover:text-blue-900 transition-colors"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
+                 hover:text-blue-900 transition-colors"
+              >
+                Contact
+              </button>
+            </div>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
+            {/* Dark Mode Toggle */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleDarkMode}
+              className="hidden md:flex "
+              aria-label={
+                darkMode ? "Switch to light mode" : "Switch to dark mode"
+              }
+            >
+              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </Button>
+
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -104,6 +149,20 @@ const Header = () => {
                 className="text-left text-foreground hover:text-blue-600 transition-colors"
               >
                 Contact
+              </button>
+              <button
+                onClick={toggleDarkMode}
+                className="flex items-center gap-2 text-left text-foreground hover:text-blue-600 transition-colors"
+              >
+                {darkMode ? (
+                  <>
+                    <Sun size={18} /> Light Mode
+                  </>
+                ) : (
+                  <>
+                    <Moon size={18} /> Dark Mode
+                  </>
+                )}
               </button>
             </div>
           </div>

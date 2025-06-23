@@ -109,10 +109,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <section
-      id="contact"
-      className="py-20 bg-gradient-to-b from-white to-blue-50"
-    >
+    <section id="contact" className="py-20  from-white to-blue-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -124,7 +121,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 dark:text-white gap-8">
           {/* Contact Information */}
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
@@ -139,7 +136,7 @@ const Contact = () => {
                       <info.icon className="text-white" size={20} />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">
+                      <h4 className="font-semibold text-gray-900 dark:text-white">
                         {info.title}
                       </h4>
                       <a
@@ -167,7 +164,7 @@ const Contact = () => {
                     <div>
                       <label
                         htmlFor="name"
-                        className="block text-sm font-medium text-gray-700 mb-2"
+                        className="block text-sm font-medium text-gray-700 dark:text-white mb-2"
                       >
                         Name
                       </label>
@@ -185,7 +182,7 @@ const Contact = () => {
                     <div>
                       <label
                         htmlFor="email"
-                        className="block text-sm font-medium text-gray-700 mb-2"
+                        className="block text-sm font-medium text-gray-700 dark:text-white mb-2"
                       >
                         Email
                       </label>
@@ -205,7 +202,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="subject"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-sm font-medium text-gray-700 dark:text-white mb-2"
                     >
                       Subject
                     </label>
@@ -224,7 +221,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-sm font-medium text-gray-700 dark:text-white mb-2"
                     >
                       Message
                     </label>

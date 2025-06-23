@@ -1,5 +1,5 @@
 import { Code, Database, Layout, Server, Smartphone, Zap } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import gsap from "gsap";
 const Skills = () => {
   const skillCategories = [
@@ -35,9 +35,9 @@ const Skills = () => {
         scrollTrigger: {
           trigger: ".skills-0",
           toggleActions: "play reverse play reverse",
+
           start: "top 80%",
           end: "bottom 20%",
-          // markers: true,
         },
       }
     );
@@ -53,6 +53,7 @@ const Skills = () => {
         scrollTrigger: {
           trigger: ".skills-1",
           toggleActions: "play reverse play reverse",
+
           start: "top 120%",
           end: "bottom 20%",
         },
@@ -70,6 +71,7 @@ const Skills = () => {
         scrollTrigger: {
           trigger: ".skills-2",
           toggleActions: "play reverse play reverse",
+
           start: "top 80%",
           end: "bottom 20%",
         },
@@ -78,12 +80,12 @@ const Skills = () => {
     gsap.fromTo(
       ".skills-section",
       {
-        rotateX: 90, // makes it appear like it's laying down
-        transformPerspective: 800, // depth effect
+        rotateX: 90,
+        transformPerspective: 800,
         transformOrigin: "top center",
       },
       {
-        rotateX: 0, // brings it upright
+        rotateX: 0,
 
         ease: "power2.out",
         scrollTrigger: {
@@ -91,14 +93,13 @@ const Skills = () => {
           toggleActions: "play none play reverse",
           start: "top 80%",
           end: "bottom 20%",
-          // markers: true, // remove when done debugging
         },
       }
     );
   }, []);
 
   return (
-    <section id="skills" className="py-20 bg-white">
+    <section id="skills" className="py-20 bg-white dark:bg-transparent">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 skills-section">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -114,7 +115,7 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className={`group relative p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 ${`skills-${index}`}`}
+              className={`group relative p-6 bg-white dark:bg-transparent rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300  border border-gray-100 ${`skills-${index}`}`}
             >
               <div
                 className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${category.color} mb-4`}
@@ -122,7 +123,7 @@ const Skills = () => {
                 <category.icon className="text-white" size={24} />
               </div>
 
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">
+              <h3 className="text-xl dark:text-white font-semibold mb-4  text-gray-900">
                 {category.title}
               </h3>
 
@@ -130,12 +131,13 @@ const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
-                    className="flex items-center justify-between p-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                    className="flex items-center justify-between p-2  bg-gray-50 
+                     rounded-lg :hover:bg-gray-100 dark:bg-transparent   transition-colors"
                   >
-                    <span className="text-sm font-medium text-gray-700">
+                    <span className="text-sm font-medium dark:text-white  text-gray-700">
                       {skill}
                     </span>
-                    <div className="w-16 h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="w-16 h-2 bg-gray-200   rounded-full overflow-hidden">
                       <div
                         className={`h-full bg-gradient-to-r ${category.color} rounded-full animate-pulse`}
                         style={{ width: `${80 + Math.random() * 20}%` }}
