@@ -98,9 +98,8 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-300 flex items-center justify-center">
-            © {currentYear} Nadir Khan. Made with{" "}
-            <Heart className="mx-1 text-red-500" size={16} /> and lots of
-            coffee.
+            © {currentYear} Nadir Khan
+            <Heart className="mx-1 text-red-500" size={16} />
           </p>
         </div>
       </div>
