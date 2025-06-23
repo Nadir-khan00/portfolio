@@ -20,7 +20,7 @@ const About = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               About Me
             </h2>
-            <div className="space-y-4 text-muted-foreground">
+            <div className="space-y-4  text-muted-foreground">
               <p className="text-lg">
                 I'm a passionate Front-end developer with over 1 years of
                 experience creating digital solutions that make a difference. My
@@ -30,7 +30,7 @@ const About = () => {
               </p>
               <p className="text-lg">
                 I specialize in modern web technologies including React,
-                Node.js, and cloud platforms. I believe in writing clean,
+                Next.js, and cloud platforms. I believe in writing clean,
                 maintainable code and staying up-to-date with the latest
                 industry trends and best practices.
               </p>
