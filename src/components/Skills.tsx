@@ -54,7 +54,7 @@ const Skills = () => {
           trigger: ".skills-1",
           toggleActions: "play reverse play reverse",
 
-          start: "top center",
+          start: "top 70%",
           end: "bottom 20%",
         },
       }
