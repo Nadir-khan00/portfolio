@@ -1,22 +1,52 @@
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const footerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (footerRef.current) {
+      // Select all elements with the animation class
+      const animatedElements =
+        footerRef.current.querySelectorAll(".footer-animate");
+
+      // Set initial state (hidden)
+      gsap.set(animatedElements, {
+        y: -40,
+        opacity: 0,
+      });
+
+      // Animate in with stagger
+      gsap.to(animatedElements, {
+        y: -0,
+        opacity: 1,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".footer-animate",
+          toggleActions: "play none none none",
+        },
+      });
+    }
+  }, []);
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer ref={footerRef} className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4 footer-animate">
               NADIR KHAN
             </h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-300 mb-4 footer-animate">
               Passionate full-stack developer creating beautiful, functional,
               and user-centered digital experiences.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 footer-animate">
               <a
                 href="https://github.com/Nadir-khan00"
                 className="text-gray-300 hover:text-blue-400 transition-colors"
@@ -30,7 +60,7 @@ const Footer = () => {
                 <Linkedin size={20} />
               </a>
               <a
-                href="Nadirkhan2009@outlook.com"
+                href="mailto:Nadirkhan2009@outlook.com"
                 className="text-gray-300 hover:text-blue-400 transition-colors"
               >
                 <Mail size={20} />
@@ -40,64 +70,46 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4 footer-animate">
+              Quick Links
+            </h4>
             <ul className="space-y-2">
-              <li>
-                <a
-                  href="#home"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#projects"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#skills"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  Contact
-                </a>
-              </li>
+              {["Home", "Projects", "Skills", "About", "Contact"].map(
+                (item, i) => (
+                  <li key={i} className="footer-animate">
+                    <a
+                      href={`#${item.toLowerCase()}`}
+                      className="text-gray-300 hover:text-blue-400 transition-colors"
+                    >
+                      {item}
+                    </a>
+                  </li>
+                )
+              )}
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Get In Touch</h4>
+            <h4 className="text-lg font-semibold mb-4 footer-animate">
+              Get In Touch
+            </h4>
             <div className="space-y-2 text-gray-300">
-              <p>Nadirkhan2009@outlook.com</p>
-              <p>+923082252009</p>
-              <p>Bahawalpur, Pakistan</p>
+              {[
+                "Nadirkhan2009@outlook.com",
+                "+923082252009",
+                "Bahawalpur, Pakistan",
+              ].map((item, i) => (
+                <p key={i} className="footer-animate">
+                  {item}
+                </p>
+              ))}
             </div>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-300 flex items-center justify-center">
+          <p className="text-gray-300 flex items-center justify-center footer-animate">
             © {currentYear} Nadir Khan
             <Heart className="mx-1 text-red-500" size={16} />
           </p>
