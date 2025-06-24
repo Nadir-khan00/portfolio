@@ -27,7 +27,7 @@ const Footer = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: ".footer-animate",
-          toggleActions: "play none none none",
+          toggleActions: "restart none none none",
         },
       });
     }
@@ -43,8 +43,8 @@ const Footer = () => {
               NADIR KHAN
             </h3>
             <p className="text-gray-300 mb-4 footer-animate">
-              Passionate full-stack developer creating beautiful, functional,
-              and user-centered digital experiences.
+              Passionate Front-end developer creating beautiful, functional, and
+              user-centered digital experiences.
             </p>
             <div className="flex space-x-4 footer-animate">
               <a

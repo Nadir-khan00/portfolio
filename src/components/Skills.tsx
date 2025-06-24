@@ -36,7 +36,7 @@ const Skills = () => {
           trigger: ".skills-0",
           toggleActions: "play reverse play reverse",
 
-          start: "top 80%",
+          start: "top center",
           end: "bottom 20%",
         },
       }
@@ -54,7 +54,7 @@ const Skills = () => {
           trigger: ".skills-1",
           toggleActions: "play reverse play reverse",
 
-          start: "top 120%",
+          start: "top center",
           end: "bottom 20%",
         },
       }
@@ -72,7 +72,7 @@ const Skills = () => {
           trigger: ".skills-2",
           toggleActions: "play reverse play reverse",
 
-          start: "top 80%",
+          start: "top center",
           end: "bottom 20%",
         },
       }
