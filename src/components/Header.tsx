@@ -1,10 +1,15 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import useClickOutside from "@/hooks/use-click-outside";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+
+  const mobileMenuRef = useClickOutside((ev) => {
+    setIsMenuOpen(false);
+  });
 
   // Initialize dark mode from localStorage or system preference
   useLayoutEffect(() => {
@@ -118,7 +123,10 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg">
+          <div
+            ref={mobileMenuRef}
+            className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg"
+          >
             <div className="flex flex-col space-y-4 p-4">
               <button
                 onClick={() => scrollToSection("home")}
