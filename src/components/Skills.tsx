@@ -1,7 +1,8 @@
 import { Code, Database, Layout, Server, Smartphone, Zap } from "lucide-react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 const Skills = () => {
@@ -26,7 +27,7 @@ const Skills = () => {
     },
   ];
 
-  useEffect(() => {
+  useGSAP(() => {
     gsap.fromTo(
       ".skills-0",
       { x: -400, opacity: 0 },
