@@ -58,7 +58,6 @@ const Skills = () => {
           toggleActions: "play reverse play reverse",
 
           start: "top 70%",
-          end: "bottom 20%",
         },
       }
     );
