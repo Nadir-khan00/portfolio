@@ -11,28 +11,12 @@ const Header = () => {
     setIsMenuOpen(false);
   });
 
-  // Initialize dark mode from localStorage or system preference
-  useLayoutEffect(() => {
-    const savedMode = localStorage.getItem("darkMode");
-    const systemPrefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-
-    if (savedMode !== null) {
-      setDarkMode(savedMode === "true");
-    } else if (systemPrefersDark) {
-      setDarkMode(true);
-    }
-  }, []);
-
   // Apply dark mode class to document
   useLayoutEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
-      localStorage.setItem("darkMode", "true");
     } else {
       document.documentElement.classList.remove("dark");
-      localStorage.setItem("darkMode", "false");
     }
   }, [darkMode]);
 
