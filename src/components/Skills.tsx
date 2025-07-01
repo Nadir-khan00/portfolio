@@ -34,15 +34,15 @@ const Skills = () => {
       {
         x: 0,
         opacity: 1,
-        duration: 0.5,
-        ease: "power2.out",
+
         scrollTrigger: {
           trigger: ".skills-0",
           toggleActions: "play reverse play reverse",
-
-          start: "top center",
+          // markers: true,
+          start: "top 85%",
           end: "bottom 20%",
         },
+        duration: 1,
       }
     );
 
@@ -52,14 +52,15 @@ const Skills = () => {
       {
         y: 0,
         opacity: 1,
-        duration: 0.5,
-        ease: "power2.out",
+
         scrollTrigger: {
           trigger: ".skills-1",
           toggleActions: "play reverse play reverse",
-
-          start: "top 70%",
+          markers: true,
+          start: "top 90%",
+          end: "bottom 20%",
         },
+        duration: 1,
       }
     );
 
@@ -69,15 +70,15 @@ const Skills = () => {
       {
         x: 0,
         opacity: 1,
-        duration: 0.5,
-        ease: "power2.out",
+
         scrollTrigger: {
           trigger: ".skills-2",
           toggleActions: "play reverse play reverse",
-
-          start: "top center",
+          // markers: true,
+          start: "top 85%",
           end: "bottom 20%",
         },
+        duration: 1,
       }
     );
     gsap.fromTo(
@@ -93,9 +94,10 @@ const Skills = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: ".skills-section",
-          toggleActions: "play none play reverse",
-          start: "top 80%",
-          end: "bottom 20%",
+          toggleActions: "play reverse play reverse",
+          // markers: true,
+          start: "top 85%",
+          end: "bottom 10%",
         },
       }
     );

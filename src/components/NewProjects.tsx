@@ -99,8 +99,9 @@ const NewProjects = () => {
         scrollTrigger: {
           trigger: ".featured-section",
           toggleActions: "play reverse play reverse",
+          // markers: true,
           start: "top 80%",
-          end: "bottom 20%",
+          end: "bottom 10%",
         },
       }
     );
