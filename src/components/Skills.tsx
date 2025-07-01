@@ -56,7 +56,7 @@ const Skills = () => {
         scrollTrigger: {
           trigger: ".skills-1",
           toggleActions: "play reverse play reverse",
-          markers: true,
+          // markers: true,
           start: "top 90%",
           end: "bottom 20%",
         },
