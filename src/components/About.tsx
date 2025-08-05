@@ -59,19 +59,12 @@ const About = () => {
 
           {/* Image */}
           <div className="relative">
-            <div className="relative z-10 dark:bg-transparent bg-gradient-to-br from-blue-700 to-purple-300 rounded-2xl p-6 text-white">
+            <div className=" mt-20 rounded-2xl text-white">
               <img
-                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80"
+                src="/public/image.jpg"
                 alt="Developer workspace"
-                className="w-full h-64 object-cover rounded-lg mb-6"
+                className="w-full flex-grow object-cover rounded-lg mb-6"
               />
-              <h3 className="text-xl font-semibold text-gray-100 mb-2">
-                Always Learning
-              </h3>
-              <p className="text-blue-100">
-                I'm constantly exploring new technologies and methodologies to
-                stay at the forefront of web development.
-              </p>
             </div>
 
             {/* Background decoration */}
