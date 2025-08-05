@@ -61,7 +61,7 @@ const About = () => {
           <div className="relative">
             <div className=" mt-20 rounded-2xl text-white">
               <img
-                src="/public/image.jpg"
+                src="/nadir.jpg"
                 alt="My image"
                 className="w-full flex-grow object-cover rounded-lg mb-6"
               />
