@@ -62,7 +62,7 @@ const About = () => {
             <div className=" mt-20 rounded-2xl text-white">
               <img
                 src="/public/image.jpg"
-                alt="Developer workspace"
+                alt="My image"
                 className="w-full flex-grow object-cover rounded-lg mb-6"
               />
             </div>
